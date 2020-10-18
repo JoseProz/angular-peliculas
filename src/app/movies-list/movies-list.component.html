@@ -1,0 +1,22 @@
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th> </th>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Director</th>
+            <th>Duración</th>
+            <th>Año</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movies" [ngClass]="{'actuales': movie.anio < 2010}">
+            <th><img [src]="movie.imagen" [alt]="movie.nombre"></th>
+            <td>{{movie.nombre | uppercase}}</td>
+            <td>{{movie.genero}}</td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.duracion}}</td>
+            <td>{{movie.anio}}</td>
+        </tr>
+    </tbody>
+</table>
