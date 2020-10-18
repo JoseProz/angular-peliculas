@@ -4,9 +4,9 @@
             <th> </th>
             <th>Nombre</th>
             <th>Genero</th>
-            <th>Director</th>
             <th>Duración</th>
             <th>Año</th>
+            <th>Puntuación</th>
         </tr>
     </thead>
     <tbody>
@@ -14,9 +14,12 @@
             <th><img [src]="movie.imagen" [alt]="movie.nombre"></th>
             <td>{{movie.nombre | uppercase}}</td>
             <td>{{movie.genero}}</td>
-            <td>{{movie.director}}</td>
             <td>{{movie.duracion}}</td>
-            <td>{{movie.anio}}</td>
+            <td><span class="badge badge-warning">{{movie.anio}}</span></td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="downQualification(movie)">-</button>
+                <input type="text" [(ngModel)]="movie.puntuacion">
+                <button class="btn btn-primary btn-sm" (click)="upQualification(movie)">+</button></td>
         </tr>
     </tbody>
 </table>

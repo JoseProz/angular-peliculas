@@ -13,30 +13,43 @@ export class MoviesListComponent implements OnInit {
     imagen: 'assets/img/evangers.jpg',
     nombre: 'evangers',
     genero: 'Acción',
-    director: 'Murphy',
     duracion: '2hs 01min',
     anio: 2012,
+    puntuacion: 0,
   },
   {
     imagen: 'assets/img/HdH.jpg',
     nombre: 'Hombres de Honor',
     genero: 'Drama',
-    director: 'Zaraza',
     duracion: '2hs 22min',
     anio: 2000,
+    puntuacion: 0,
   },
   {
     imagen: 'assets/img/BatmanInicia.jpg',
     nombre: 'Batman Inicia',
     genero: 'Thriller',
-    director: 'DC',
     duracion: '2hs 34min',
     anio: 2011,
+    puntuacion: 0,
   }
   ]
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  upQualification(movie: Movie): void {
+    if (movie.puntuacion < 10){
+      movie.puntuacion++;
+    }
+  }
+
+  downQualification(movie: Movie): void {
+    if (movie.puntuacion > 0){
+      movie.puntuacion--;
+    }
+  }
+
 
 }
