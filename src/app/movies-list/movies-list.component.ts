@@ -50,6 +50,16 @@ export class MoviesListComponent implements OnInit {
       movie.puntuacion--;
     }
   }
+ChangePuntuacion(event, movie: Movie){
+  if (event.target.value <= 0){
+    console.log(event.target.value);
+    movie.puntuacion = 0;
+  }
+  else if (event.target.value > 10){
+    console.log(event.target.value);
+    movie.puntuacion = 10;
+  }
 
+}
 
 }

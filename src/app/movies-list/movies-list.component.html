@@ -17,9 +17,10 @@
             <td>{{movie.duracion}}</td>
             <td><span class="badge badge-warning">{{movie.anio}}</span></td>
             <td>
-                <button class="btn btn-primary btn-sm" (click)="downQualification(movie)">-</button>
-                <input type="text" [(ngModel)]="movie.puntuacion">
-                <button class="btn btn-primary btn-sm" (click)="upQualification(movie)">+</button></td>
+                <button class="btn btn-primary btn-sm" (click)="downQualification(movie)">-</button><span class="badge badge-warning">{{movie.puntuacion}}</span>
+                <input type="number" [(ngModel)]="movie.puntuacion" (keyup)="ChangePuntuacion($event,movie)">
+                <button class="btn btn-primary btn-sm" (click)="upQualification(movie)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>
