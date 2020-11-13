@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 
 import { FormsModule } from '@angular/forms';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

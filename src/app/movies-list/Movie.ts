@@ -4,6 +4,7 @@ export interface Movie{
     genero: string;
     duracion: string;
     anio: number;
+    definicion: string;
     puntuacion: number;
 
 }

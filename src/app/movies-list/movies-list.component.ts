@@ -15,6 +15,7 @@ export class MoviesListComponent implements OnInit {
     genero: 'Acción',
     duracion: '2hs 01min',
     anio: 2012,
+    definicion: '4K',
     puntuacion: 0,
   },
   {
@@ -23,6 +24,7 @@ export class MoviesListComponent implements OnInit {
     genero: 'Drama',
     duracion: '2hs 22min',
     anio: 2000,
+    definicion: 'SD',
     puntuacion: 0,
   },
   {
@@ -31,6 +33,7 @@ export class MoviesListComponent implements OnInit {
     genero: 'Thriller',
     duracion: '2hs 34min',
     anio: 2011,
+    definicion: 'HD',
     puntuacion: 0,
   }
   ]
@@ -38,28 +41,5 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  upQualification(movie: Movie): void {
-    if (movie.puntuacion < 10){
-      movie.puntuacion++;
-    }
-  }
-
-  downQualification(movie: Movie): void {
-    if (movie.puntuacion > 0){
-      movie.puntuacion--;
-    }
-  }
-ChangePuntuacion(event, movie: Movie){
-  if (event.target.value <= 0){
-    console.log(event.target.value);
-    movie.puntuacion = 0;
-  }
-  else if (event.target.value > 10){
-    console.log(event.target.value);
-    movie.puntuacion = 10;
-  }
-
-}
 
 }

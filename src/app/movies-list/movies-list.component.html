@@ -6,20 +6,20 @@
             <th>Genero</th>
             <th>Duración</th>
             <th>Año</th>
+            <th>Calidad</th>
             <th>Puntuación</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let movie of movies" [ngClass]="{'actuales': movie.anio < 2010}">
+        <tr *ngFor="let movie of movies" [ngClass]="{'actuales': movie.anio < 1999}">
             <th><img [src]="movie.imagen" [alt]="movie.nombre"></th>
             <td>{{movie.nombre | uppercase}}</td>
             <td>{{movie.genero}}</td>
             <td>{{movie.duracion}}</td>
             <td><span class="badge badge-warning">{{movie.anio}}</span></td>
+            <td><span class="badge badge-warning">{{movie.definicion}}</span></td>
             <td>
-                <button class="btn btn-primary btn-sm" (click)="downQualification(movie)">-</button><span class="badge badge-warning">{{movie.puntuacion}}</span>
-                <input type="number" [(ngModel)]="movie.puntuacion" (keyup)="ChangePuntuacion($event,movie)">
-                <button class="btn btn-primary btn-sm" (click)="upQualification(movie)">+</button>
+                <app-input-integer [movie]="movie" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
             </td>
         </tr>
     </tbody>
