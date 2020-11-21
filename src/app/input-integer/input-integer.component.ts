@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from '../movies-list/Movie';
 
 @Component({
@@ -11,30 +11,47 @@ export class InputIntegerComponent implements OnInit {
 constructor() { }
 
 @Input()
-movie: Movie;
+puntuacion: number;
+
+@Input()
+max: number;
+
+@Input()
+min: number;
+
+@Output()
+puntuacionChange: EventEmitter<number> = new EventEmitter<number>();
+
+@Output()
+maxReached: EventEmitter<string>= new EventEmitter<string>();
 
 ngOnInit(): void {
   }
 
-  upQualification(movie: Movie): void {
-    if (movie.puntuacion < 10){
-      movie.puntuacion++;
+  upQualification(): void {
+    if (this.puntuacion < this.max){
+      this.puntuacion++;
+      this.puntuacionChange.emit(this.puntuacion);
     }
+    else this.maxReached.emit("se alcanzo maxima puntuacion");
   }
 
-  downQualification(movie: Movie): void {
-    if (movie.puntuacion > 0){
-      movie.puntuacion--;
+  downQualification(): void {
+    if (this.puntuacion > this.min){
+      this.puntuacion--;
+      this.puntuacionChange.emit(this.puntuacion);
     }
   }
-ChangePuntuacion(event, movie: Movie){
-  if (event.target.value <= 0){
+ChangePuntuacion(event): void{
+  if (event.target.value <= this.min){
     console.log(event.target.value);
-    movie.puntuacion = 0;
+    this.puntuacion = this.min;
+    this.puntuacionChange.emit(this.puntuacion);
   }
-  else if (event.target.value > 10){
+  else if (event.target.value > this.max){
     console.log(event.target.value);
-    movie.puntuacion = 10;
+    this.puntuacion = this.max;
+    this.puntuacionChange.emit(this.puntuacion);
   }
 
 }

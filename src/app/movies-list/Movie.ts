@@ -6,5 +6,7 @@ export interface Movie{
     anio: number;
     definicion: string;
     puntuacion: number;
+    limitePuntuacion: number;
+    minimoPuntuacion: number;
 
 }

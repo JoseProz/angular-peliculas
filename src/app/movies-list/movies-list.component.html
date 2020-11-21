@@ -19,7 +19,8 @@
             <td><span class="badge badge-warning">{{movie.anio}}</span></td>
             <td><span class="badge badge-warning">{{movie.definicion}}</span></td>
             <td>
-                <app-input-integer [movie]="movie" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
+                <app-input-integer [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
+                <span *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">Calificacion:{{movie.puntuacion}}</span>
             </td>
         </tr>
     </tbody>

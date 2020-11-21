@@ -17,6 +17,8 @@ export class MoviesListComponent implements OnInit {
     anio: 2012,
     definicion: '4K',
     puntuacion: 0,
+    limitePuntuacion: 10,
+    minimoPuntuacion: 0,
   },
   {
     imagen: 'assets/img/HdH.jpg',
@@ -26,6 +28,8 @@ export class MoviesListComponent implements OnInit {
     anio: 2000,
     definicion: 'SD',
     puntuacion: 0,
+    limitePuntuacion: 10,
+    minimoPuntuacion: 0,
   },
   {
     imagen: 'assets/img/BatmanInicia.jpg',
@@ -35,11 +39,17 @@ export class MoviesListComponent implements OnInit {
     anio: 2011,
     definicion: 'HD',
     puntuacion: 0,
+    limitePuntuacion: 10,
+    minimoPuntuacion: 0,
   }
   ]
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  maxReached (m: string){
+    alert(m);
   }
 
 }

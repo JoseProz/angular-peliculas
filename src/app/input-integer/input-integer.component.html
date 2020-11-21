@@ -1,4 +1,4 @@
-<span class="badge badge-warning">{{movie.puntuacion}}</span>
-<button class="btn btn-primary btn-sm" (click)="downQualification(movie)">-</button>
-<input class="input-puntaje" type="hidden" [(ngModel)]="movie.puntuacion" (keyup)="ChangePuntuacion($event,movie)">
-<button class="btn btn-primary btn-sm" (click)="upQualification(movie)">+</button>
+<span class="badge badge-warning">{{puntuacion}}</span>
+<button class="btn btn-primary btn-sm" (click)="downQualification()">-</button>
+<input class="input-puntaje" type="hidden" [(ngModel)]="puntuacion" (keyup)="ChangePuntuacion($event)">
+<button class="btn btn-primary btn-sm" (click)="upQualification()">+</button>
