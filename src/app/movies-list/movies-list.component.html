@@ -21,6 +21,7 @@
             <td>
                 <app-input-integer [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
                 <span *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">Calificacion:{{movie.puntuacion}}</span>
+                <button class="btn btn-primary" (click)="addToCart(movie)">Agregar a favoritas</button>
             </td>
         </tr>
     </tbody>

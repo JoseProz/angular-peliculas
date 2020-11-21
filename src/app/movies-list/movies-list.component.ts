@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from './Movie';
+import { FavoritesCartService } from '../favorites-cart.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -43,9 +44,16 @@ export class MoviesListComponent implements OnInit {
     minimoPuntuacion: 0,
   }
   ]
-  constructor() { }
+
+
+  constructor(private cart: FavoritesCartService) {
+   }
 
   ngOnInit(): void {
+  }
+
+  addToCart(movie): void {
+    this.cart.addToCart(movie);
   }
 
   maxReached (m: string){
