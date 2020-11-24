@@ -12,7 +12,7 @@ export class MoviesListComponent implements OnInit {
   movies: Movie [] = [
     {
     imagen: 'assets/img/evangers.jpg',
-    nombre: 'evangers',
+    nombre: 'Evangers',
     genero: 'Acción',
     duracion: '2hs 01min',
     anio: 2012,

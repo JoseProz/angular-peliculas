@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
 
   favoriteFilms: Movie[];
   constructor(private cart: FavoritesCartService) {
-    this.favoriteFilms=cart.favoritesList;
+    cart.favoritesList.subscribe(c => this.favoriteFilms = c);
    }
   ngOnInit(): void {
   }

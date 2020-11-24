@@ -1,5 +1,5 @@
 <table class="table table-bordered table-dark">
-    <thead>
+    <!--<thead>
         <tr>
             <th> </th>
             <th>Nombre</th>
@@ -9,11 +9,39 @@
             <th>Calidad</th>
             <th>Puntuación</th>
         </tr>
-    </thead>
+    </thead>-->
     <tbody>
         <tr *ngFor="let movie of movies" [ngClass]="{'actuales': movie.anio < 1999}">
             <th><img [src]="movie.imagen" [alt]="movie.nombre"></th>
-            <td>{{movie.nombre | uppercase}}</td>
+            <td>
+                <ul>
+                    <li>
+                        <p>Nombre: {{movie.nombre}}</p>
+                    </li>
+                    <li>
+                        <p>Genero: {{movie.genero}}</p>
+                    </li>
+                    <li>
+                        <p>Duración: {{movie.duracion}}</p>
+                    </li>
+                    <li>
+                        <p>Año: <span class="badge badge-warning">{{movie.anio}}</span></p>
+                    </li>
+                    <li>
+                        <p>Calidad: <span class="badge badge-warning">{{movie.definicion}}</span></p>
+                    </li>
+                    <li>
+                        <app-input-integer [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
+                        <span *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">Puntuacion:{{movie.puntuacion}}</span>
+
+                    </li>
+                    <li *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">
+                        <label>Calificar</label><input type="number">
+                    </li>
+                    <li> <button class="btn btn-primary" (click)="addToCart(movie)">Agregar a favoritas</button></li>
+                </ul>
+            </td>
+            <!--<td>{{movie.nombre | uppercase}}</td>
             <td>{{movie.genero}}</td>
             <td>{{movie.duracion}}</td>
             <td><span class="badge badge-warning">{{movie.anio}}</span></td>
@@ -22,7 +50,7 @@
                 <app-input-integer [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
                 <span *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">Calificacion:{{movie.puntuacion}}</span>
                 <button class="btn btn-primary" (click)="addToCart(movie)">Agregar a favoritas</button>
-            </td>
+            </td>-->
         </tr>
     </tbody>
 </table>

@@ -1,6 +1,27 @@
-<h3>Peliculas Favoritas</h3>
-<ul>
-    <li *ngFor="let film of favoriteFilms">
-        <img src="{{film.imagen}}" alt="">
-    </li>
-</ul>
+<div class="carrito">
+    <h3>Peliculas Favoritas</h3>
+    <ul *ngFor="let film of favoriteFilms" class="lista-principal">
+        <li>
+            <div class="card" style="width: 18rem;">
+                <img [src]="film.imagen" [alt]="film.nombre" [height]="200">
+                <div class="card-body">
+
+                    <ul>
+                        <li>
+                            <h3 class="card-title">{{film.nombre}}</h3>
+                        </li>
+                        <li>
+                            <h6>Género:</h6><span>{{film.genero}}</span>
+                        </li>
+                        <li>
+                            <h6>Año:</h6><span class="badge badge-warning">{{film.anio}}</span>
+                        </li>
+                        <li>
+                            <h6>Duración:</h6><span class="badge badge-warning">{{film.duracion}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Movie } from '../../../peliculas/src/app/movies-list/Movie';
 
 @Injectable({
@@ -6,20 +7,20 @@ import { Movie } from '../../../peliculas/src/app/movies-list/Movie';
 })
 export class FavoritesCartService {
 
-favoritesList: Movie [] = [];
+private _favoritesList: Movie [] = [];
+
+favoritesList: BehaviorSubject<Movie[]> = new BehaviorSubject([]);
   
 constructor() { }
 
 addToCart(movie: Movie) {
-  let film: Movie= this.favoritesList.find((v1) => v1.nombre == movie.nombre);
+  let film: Movie= this._favoritesList.find(v1 => v1.nombre == movie.nombre);
   if (!film){
-    this.favoritesList.push({...movie});
-    console.log({...movie});
-  }else{
-
-  }   
+    this._favoritesList.push({...movie});
+  } 
+    this.favoritesList.next(this._favoritesList);//equivalente al emitt de eventos
+  }
+}
 
     
-  }
 
-}
