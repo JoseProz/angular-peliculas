@@ -31,12 +31,7 @@
                         <p>Calidad: <span class="badge badge-warning">{{movie.definicion}}</span></p>
                     </li>
                     <li>
-                        <app-input-integer [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
-                        <span *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">Puntuacion:{{movie.puntuacion}}</span>
-
-                    </li>
-                    <li *ngIf="movie.definicion=='HD'||movie.definicion=='4K'">
-                        <label>Calificar</label><input type="number">
+                        <app-input-integer [movie]="movie" [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
                     </li>
                     <li> <button class="btn btn-primary" (click)="addToCart(movie)">Agregar a favoritas</button></li>
                 </ul>

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FavoritesCartService } from '../favorites-cart.service';
 import { Movie } from '../movies-list/Movie';
+import { MoviesListComponent } from '../movies-list/movies-list.component';
 
 @Component({
   selector: 'app-input-integer',
@@ -8,13 +10,21 @@ import { Movie } from '../movies-list/Movie';
 })
 export class InputIntegerComponent implements OnInit {
 
-constructor() { }
+listMovie: Movie[]; 
+
+
+constructor(private cart: FavoritesCartService) {
+  this.cart.favoritesList.subscribe(c => this.listMovie = c);
+}
 
 @Input()
 puntuacion: number;
 
 @Input()
 max: number;
+
+@Input()
+movie: Movie;
 
 @Input()
 min: number;
@@ -25,13 +35,20 @@ puntuacionChange: EventEmitter<number> = new EventEmitter<number>();
 @Output()
 maxReached: EventEmitter<string>= new EventEmitter<string>();
 
+
+
 ngOnInit(): void {
+  }
+  
+  puntuar(calif: number, movie: Movie){
+    this.cart.calificar(calif,movie);
   }
 
   upQualification(): void {
     if (this.puntuacion < this.max){
       this.puntuacion++;
-      this.puntuacionChange.emit(this.puntuacion);
+      console.log(this.puntuacion);
+      //this.puntuacionChange.emit(this.puntuacion);
     }
     else this.maxReached.emit("se alcanzo maxima puntuacion");
   }
@@ -39,7 +56,8 @@ ngOnInit(): void {
   downQualification(): void {
     if (this.puntuacion > this.min){
       this.puntuacion--;
-      this.puntuacionChange.emit(this.puntuacion);
+      console.log(this.puntuacion);
+     // this.puntuacionChange.emit(this.puntuacion);
     }
   }
 ChangePuntuacion(event): void{

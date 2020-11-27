@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from './Movie';
 import { FavoritesCartService } from '../favorites-cart.service';
 
@@ -20,6 +20,7 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
+    contador: 0,
   },
   {
     imagen: 'assets/img/HdH.jpg',
@@ -31,6 +32,7 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
+    contador: 0,
   },
   {
     imagen: 'assets/img/BatmanInicia.jpg',
@@ -42,12 +44,14 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
+    contador: 0,
   }
   ]
 
 
   constructor(private cart: FavoritesCartService) {
    }
+
 
   ngOnInit(): void {
   }
