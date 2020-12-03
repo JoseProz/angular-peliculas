@@ -1,6 +1,8 @@
 <ul>
     <li><span class="badge badge-warning">Puntuacion: {{puntuacion}}</span></li>
-    <li><button (click)="puntuar(puntuacion,movie)">Puntuar</button></li>
+    <!--modifico puntuacion desde componente de peliculas a carritos, solo como funcionalidad 
+        y conexion entre componentes,no tiene mucho sentido para la página.-->
+    <li><button (click)="puntuar(puntuacion,movie)">Modificar Puntuacion en Carro</button></li>
     <li><button class="btn btn-primary btn-sm" (click)="downQualification()">-</button>
         <input class="input-puntaje" type="hidden" [(ngModel)]="puntuacion" (keyup)="ChangePuntuacion($event)">
         <button class="btn btn-primary btn-sm" (click)="upQualification()">+</button>

@@ -31,6 +31,7 @@
                         <p>Calidad: <span class="badge badge-warning">{{movie.definicion}}</span></p>
                     </li>
                     <li>
+                        <!--si no es una pelicula con una calidad mayor a Hd no permito puntuacion-->
                         <app-input-integer [movie]="movie" [(puntuacion)]="movie.puntuacion" [min]="movie.minimoPuntuacion" [max]="movie.limitePuntuacion" (maxReached)="maxReached($event)" *ngIf="movie.definicion=='HD'||movie.definicion=='4K'"></app-input-integer>
                     </li>
                     <li> <button class="btn btn-primary" (click)="addToCart(movie)">Agregar a favoritas</button></li>

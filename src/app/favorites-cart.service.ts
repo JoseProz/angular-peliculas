@@ -28,7 +28,8 @@ addToCart(movie: Movie) {
     this._favoritesList.splice(film,1);
     this.favoritesList.next(this._favoritesList);
   }
-
+  
+  //modifico puntuacion desde componente de peliculas a carritos, solo como funcionalidad no tiene mucho sentido para la página.
   calificar(calif: number, movie: Movie){
     let posicion: number= this._favoritesList.findIndex(p=> p.nombre==movie.nombre);
     this._favoritesList[posicion].puntuacion=calif;
