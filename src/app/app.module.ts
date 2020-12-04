@@ -10,6 +10,7 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FrontPageComponent } from './front-page/front-page.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,9 @@ import { FrontPageComponent } from './front-page/front-page.component';
       MoviesListComponent,
       InputIntegerComponent,
       CartComponent,
+      AboutComponent,
       FrontPageComponent
+
     ],
     imports: [
       BrowserModule,
