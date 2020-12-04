@@ -8,5 +8,4 @@ export interface Movie{
     puntuacion: number;
     limitePuntuacion: number;
     minimoPuntuacion: number;
-    contador: number;
 }

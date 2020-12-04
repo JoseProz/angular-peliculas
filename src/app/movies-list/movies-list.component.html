@@ -1,15 +1,4 @@
 <table class="table table-bordered table-dark">
-    <!--<thead>
-        <tr>
-            <th> </th>
-            <th>Nombre</th>
-            <th>Genero</th>
-            <th>Duración</th>
-            <th>Año</th>
-            <th>Calidad</th>
-            <th>Puntuación</th>
-        </tr>
-    </thead>-->
     <tbody>
         <tr *ngFor="let movie of movies" [ngClass]="{'actuales': movie.anio < 1999}">
             <th><img [src]="movie.imagen" [alt]="movie.nombre"></th>

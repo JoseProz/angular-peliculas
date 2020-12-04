@@ -20,7 +20,6 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
-    contador: 0,
   },
   {
     imagen: 'assets/img/HdH.jpg',
@@ -32,7 +31,6 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
-    contador: 0,
   },
   {
     imagen: 'assets/img/BatmanInicia.jpg',
@@ -44,7 +42,17 @@ export class MoviesListComponent implements OnInit {
     puntuacion: 0,
     limitePuntuacion: 10,
     minimoPuntuacion: 0,
-    contador: 0,
+  },
+  {
+    imagen: 'assets/img/LaNaranjaMecanica.jpg',
+    nombre: 'La Naranja Mecanica',
+    genero: 'Drama',
+    duracion: '2hs 16min',
+    anio: 1971,
+    definicion: 'SD',
+    puntuacion: 0,
+    limitePuntuacion: 10,
+    minimoPuntuacion: 0,
   }
   ]
 
